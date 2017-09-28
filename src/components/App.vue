@@ -46,7 +46,7 @@ export default class App extends Vue {
     const firstPart = this.totalMass * FIRST_PART_RATIO;
     const secondPart = this.totalMass * SECOND_PART_RATIO;
 
-    let pours = [Math.round(acidityRatio * firstPart), Math.round(firstPart)]
+    let pours = [Math.round(acidityRatio * firstPart), Math.round(firstPart)];
     for (let i = 1; i <= this.intensity; i++) {
       pours.push(Math.round(firstPart + secondPart * intensityRatio * i));
     }
