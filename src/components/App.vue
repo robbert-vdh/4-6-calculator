@@ -2,7 +2,7 @@
 <div>
   <Config :coffee-weight.sync="coffeeWeight" :ratio.sync="ratio"
           :intensity.sync="intensity" :acidity.sync="acidity" />
-  <p>Total mass: {{ totalMass }} g</p>
+  <p>Total water mass: {{ totalMass }} g</p>
   <ul>
     <li v-for="(amount, index) in pours">
       {{ ORDINALS[index] }} pour: {{ amount }} g
