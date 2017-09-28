@@ -38,7 +38,7 @@
           </div>
           <div class="auto cell">
             <slider :value.sync="acidity" @input="$emit('update:acidity', Number($event))"
-                    :min="0" :max="12" :interval="1" formatter="{value}:12" class="range-slider" id="sweetness-ratio" />
+                    :min="0" :max="12" :interval="1" formatter="{value}/12" class="range-slider" id="sweetness-ratio" />
           </div>
         </div>
       </div>
