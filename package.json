@@ -1,0 +1,25 @@
+{
+  "name": "4-6-method",
+  "version": "0.0.1",
+  "description": "A simple calculator for the 4-6 pourover method",
+  "repository": "https://github.com/robbert-vdh/4-6-method",
+  "author": "Robbert van der Helm <mail@robbertvanderhelm.nl>",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.7",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "ts-loader": "^2.3.7",
+    "typescript": "^2.5.3",
+    "vue-loader": "^13.0.5",
+    "vue-template-compiler": "^2.4.4",
+    "webpack": "^3.6.0"
+  },
+  "dependencies": {
+    "vue": "^2.4.4",
+    "vue-router": "^2.7.0"
+  }
+}
