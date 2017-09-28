@@ -1,8 +1,8 @@
 {
-  "name": "4-6-method",
+  "name": "4-6-calculator",
   "version": "0.0.1",
   "description": "A simple calculator for the 4-6 pourover method",
-  "repository": "https://github.com/robbert-vdh/4-6-method",
+  "repository": "https://github.com/robbert-vdh/4-6-calculator",
   "author": "Robbert van der Helm <mail@robbertvanderhelm.nl>",
   "license": "MIT",
   "scripts": {
