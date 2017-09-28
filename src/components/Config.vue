@@ -36,26 +36,20 @@
           <div class="shrink cell">
             <label for="sweetness-ratio" class="text-right middle">Acidity/sweetness ratio</label>
           </div>
-          <auto class="auto cell">
-            <input :value="acidity" @input="$emit('update:acidity', Number($event.target.value))"
-                   id="sweetness-ratio" class="auto cell slider" type="range" min="0" max="12" step="1">
-          </auto>
-          <div class="shrink cell">
-            <span class="input-group-label">{{ acidity }}:12</span>
+          <div class="auto cell">
+            <slider :value.sync="acidity" @input="$emit('update:acidity', Number($event))"
+                    :min="0" :max="12" :interval="1" formatter="{value}:12" class="range-slider" id="sweetness-ratio" />
           </div>
         </div>
       </div>
       <div class="medium-6 cell">
         <div class="grid-x grid-padding-x">
           <div class="shrink cell">
-            <label for="ratio" class="text-right middle">Intensity</label>
+            <label for="intensity" class="text-right middle">Intensity</label>
           </div>
           <div class="auto cell">
-            <input :value="intensity" @input="$emit('update:intensity', Number($event.target.value))"
-                   class="auto cell slider" type="range" min="1" max="5" step="1">
-          </div>
-          <div class="shrink cell">
-            <span class="input-group-label">{{ intensity }}</span>
+            <slider :value.sync="intensity" @input="$emit('update:intensity', Number($event))"
+                    :min="1" :max="5" :interval="1" class="range-slider" id="intensity" />
           </div>
         </div>
       </div>
@@ -66,8 +60,11 @@
 
 <script lang="ts">
 import {Component, Prop, Vue} from 'vue-property-decorator';
+import Slider from 'vue-slider-component/src/vue2-slider.vue';
 
-@Component
+@Component({
+  components: {Slider}
+})
 export default class Config extends Vue {
   /**
    * The acidity/sweetness ratio of the first 40% of the pour on a scale of 0 to
@@ -91,12 +88,8 @@ export default class Config extends Vue {
 </script>
 
 <style lang="scss">
-// TODO: Remove scaffolding
-@import '~foundation-sites/scss/foundation';
-
-@include foundation-range-input;
-
-.slider {
-  margin: 0 0.5rem;
+.range-slider {
+  // Hack the slider into alignment, for now
+  padding-top: 1.1rem !important;
 }
 </style>

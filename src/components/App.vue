@@ -1,6 +1,6 @@
 <template>
 <div>
-  <Config :coffee-weight.sync="coffeeWeight" :ratio.sync="ratio"
+  <config :coffee-weight.sync="coffeeWeight" :ratio.sync="ratio"
           :intensity.sync="intensity" :acidity.sync="acidity" />
   <p>Total water mass: {{ totalMass }} g</p>
   <ul>
