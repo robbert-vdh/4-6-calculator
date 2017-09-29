@@ -1,0 +1,10 @@
+{
+  "name": "4-6 method calculator",
+  "short_name": "4-6 calculator",
+  "description": "A simple calculator for the 4-6 pourover method",
+  "lang": "en-GB",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#1779ba",
+  "background_color": "#fefefe"
+}
