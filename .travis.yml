@@ -1,0 +1,16 @@
+language: node_js
+
+script: NODE_ENV=production yarn build
+
+before_deploy:
+  - shopt -s extglob
+  - rm !(dist|index.html|manifest.json)
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+
+branches:
+  only:
+    - master
