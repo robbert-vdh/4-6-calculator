@@ -7,8 +7,7 @@ cache: yarn
 script: NODE_ENV=production yarn build
 
 before_deploy:
-  - shopt -s extglob
-  - rm -rf !(dist|index.html|manifest.json)
+  - find . -mindepth 1 -maxdepth 1 -not \( -name 'dist' -or -name 'index.html' -or -name 'manifest.json' \) -print0 | xargs -0 rm -rf
 
 deploy:
   provider: pages
