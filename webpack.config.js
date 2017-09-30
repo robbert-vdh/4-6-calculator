@@ -1,5 +1,9 @@
-var path = require('path');
-var webpack = require('webpack');
+const del = require('del');
+const path = require('path');
+const webpack = require('webpack');
+
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: './src/entry.ts',
@@ -33,6 +37,13 @@ module.exports = {
         }
       },
       {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader']
+        })
+      },
+      {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
@@ -59,7 +70,16 @@ module.exports = {
   },
   devtool: '#eval-source-map',
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new ExtractTextPlugin({
+      filename: 'app.css',
+      disable: process.env.NODE_ENV !== 'production'
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new WorkboxPlugin({
+      globDirectory: 'dist/',
+      globPatterns: ['../index.html', '**/*.{html,js,css}'],
+      swDest: path.join('dist', 'sw.js')
+    })
   ]
 };
 
