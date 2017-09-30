@@ -6,7 +6,7 @@ script: NODE_ENV=production yarn build
 
 before_deploy:
   - shopt -s extglob
-  - rm !(dist|index.html|manifest.json)
+  - rm -rf !(dist|index.html|manifest.json)
 
 deploy:
   provider: pages
