@@ -78,6 +78,12 @@ module.exports = {
     new WorkboxPlugin({
       globDirectory: 'dist/',
       globPatterns: ['../index.html', '**/*.{html,js,css}'],
+      runtimeCaching: [
+        {
+          urlPattern: /^https:\/\/fonts\.(?:googleapis|gstatic)\.com\//,
+          handler: 'cacheFirst'
+        }
+      ],
       swDest: path.join('dist', 'sw.js')
     })
   ]
