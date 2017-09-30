@@ -3,11 +3,14 @@
   <config :coffee-weight.sync="coffeeWeight" :ratio.sync="ratio"
           :intensity.sync="intensity" :acidity.sync="acidity" />
   <p>Total water mass: {{ totalMass }} g</p>
-  <ul>
-    <li v-for="(amount, index) in pours">
-      {{ ORDINALS[index] }} pour: {{ amount }} g
-    </li>
-  </ul>
+  <table class="table table--shrink-first-column">
+    <tbody>
+      <tr v-for="(amount, index) in pours">
+        <td>{{ ORDINALS[index] }} pour</td>
+        <td>{{ amount }} g</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 </template>
 
@@ -55,3 +58,12 @@ export default class App extends Vue {
   }
 }
 </script>
+
+<style lang="scss">
+.table--shrink-first-column {
+  td:first-child {
+    width: 1%;
+    white-space: nowrap;
+  }
+}
+</style>
