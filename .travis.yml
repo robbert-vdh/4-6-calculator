@@ -2,6 +2,8 @@ language: node_js
 node_js:
   - 'node'
 
+cache: yarn
+
 script: NODE_ENV=production yarn build
 
 before_deploy:
