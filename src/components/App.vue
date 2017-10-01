@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import {Component, Prop, Vue} from 'vue-property-decorator';
+import {Component, Prop, Watch, Vue} from 'vue-property-decorator';
 
 import Config from './Config.vue';
 import {State, saveConfig} from '../persistence';
@@ -34,10 +34,15 @@ export default class App extends Vue {
   ];
 
   config: State = {
-    sweetness: 5,
     coffeeWeight: 20.0,
     ratio: 15.0,
+    sweetness: 5,
     intensity: 3
+  };
+
+  @Watch('config', {deep: true})
+  writeonfig(config: State) {
+    saveConfig(config);
   };
 
   get totalMass(): number {
