@@ -18,7 +18,7 @@
 import {Component, Prop, Watch, Vue} from 'vue-property-decorator';
 
 import Config from './Config.vue';
-import {State, saveConfig} from '../persistence';
+import {State, loadConfig, saveConfig} from '../persistence';
 
 const FIRST_PART_RATIO = 0.4;
 const SECOND_PART_RATIO = 0.6;
@@ -61,6 +61,13 @@ export default class App extends Vue {
     }
 
     return pours;
+  }
+
+  created() {
+    const newState = loadConfig();
+    if (newState !== null) {
+      this.config = newState;
+    }
   }
 }
 </script>
