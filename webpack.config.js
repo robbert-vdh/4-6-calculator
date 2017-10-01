@@ -20,7 +20,8 @@ module.exports = {
         loader: 'vue-loader',
         options: {
           loaders: {
-            'scss': 'vue-style-loader!css-loader!postcss-loader!sass-loader'
+            'scss': 'vue-style-loader!css-loader!postcss-loader!sass-loader',
+            'ts': 'babel-loader!ts-loader'
           }
         }
       },
