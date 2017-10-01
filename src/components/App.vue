@@ -1,7 +1,7 @@
 <template>
 <div>
   <config :coffee-weight.sync="coffeeWeight" :ratio.sync="ratio"
-          :intensity.sync="intensity" :acidity.sync="acidity" />
+          :intensity.sync="intensity" :sweetness.sync="sweetness" />
   <p>Total water mass: {{ totalMass }} g</p>
   <table class="table table--shrink-first-column">
     <tbody>
@@ -21,7 +21,7 @@ import Config from './Config.vue';
 
 const FIRST_PART_RATIO = 0.4;
 const SECOND_PART_RATIO = 0.6;
-const TOTAL_ACIDITY_SWEETNESS = 12;
+const TOTAL_SWEETNESS_ACIDITY = 12;
 
 const swek = 69;
 
@@ -34,7 +34,7 @@ export default class App extends Vue {
     'First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh'
   ];
 
-  acidity = 5;
+  sweetness = 5;
   coffeeWeight = 20.0;
   ratio = 15.0;
   intensity = 3;
@@ -44,12 +44,12 @@ export default class App extends Vue {
   }
 
   get pours(): number[] {
-    const acidityRatio = this.acidity / TOTAL_ACIDITY_SWEETNESS;
+    const sweetnessRatio = this.sweetness / TOTAL_SWEETNESS_ACIDITY;
     const intensityRatio = 1.0 / this.intensity;
     const firstPart = this.totalMass * FIRST_PART_RATIO;
     const secondPart = this.totalMass * SECOND_PART_RATIO;
 
-    let pours = [Math.round(acidityRatio * firstPart), Math.round(firstPart)];
+    let pours = [Math.round(sweetnessRatio * firstPart), Math.round(firstPart)];
     for (let i = 1; i <= this.intensity; i++) {
       pours.push(Math.round(firstPart + secondPart * intensityRatio * i));
     }

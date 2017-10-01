@@ -34,10 +34,10 @@
       <div class="medium-6 cell">
         <div class="grid-x grid-padding-x">
           <div class="shrink cell">
-            <label for="sweetness-ratio" class="text-right middle">Acidity/sweetness ratio</label>
+            <label for="sweetness-ratio" class="text-right middle">Sweetness/acidity ratio</label>
           </div>
           <div class="auto cell">
-            <slider :value.sync="acidity" @input="$emit('update:acidity', Number($event))"
+            <slider :value.sync="sweetness" @input="$emit('update:sweetness', Number($event))"
                     :min="0" :max="12" :interval="1" formatter="{value}/12" class="range-slider" id="sweetness-ratio" />
           </div>
         </div>
@@ -67,11 +67,11 @@ import Slider from 'vue-slider-component/src/vue2-slider.vue';
 })
 export default class Config extends Vue {
   /**
-   * The acidity/sweetness ratio of the first 40% of the pour on a scale of 0 to
+   * The sweetness/acidity ratio of the first 40% of the pour on a scale of 0 to
    * 12. A value of 50 corrosponds to Tetsu Kasuya's original 50:70 ratio.
    */
   @Prop({type: Number, required: true})
-  acidity: number;
+  sweetness: number;
 
   /** The total weight of the coffee grounds. */
   @Prop({type: Number, required: true})
